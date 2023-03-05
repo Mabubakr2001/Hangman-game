@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" />
+    <script type="module" defer src="main.js"></script>
+    <title>Hangman-game</title>
+  </head>
+  <body>
+    <h1 class="game-title">Hangman</h1>
+    <div class="game-container">
+      <div class="gallows-spot">
+        <div class="gallows-stand" data-state="hidden"></div>
+        <div class="gallows-column" data-state="hidden"></div>
+        <div class="gallows-first-column-slanted" data-state="hidden"></div>
+        <div class="gallows-second-column-slanted" data-state="hidden"></div>
+        <div class="gallows-rope-body" data-state="hidden"></div>
+        <div class="gallows-rope-head" data-state="hidden"></div>
+        <div class="man-head" data-state="hidden"></div>
+        <div class="man-body" data-state="hidden"></div>
+        <div class="man-first-hand" data-state="hidden"></div>
+        <div class="man-second-hand" data-state="hidden"></div>
+        <div class="man-first-leg" data-state="hidden"></div>
+        <div class="man-second-leg" data-state="hidden"></div>
+      </div>
+      <div class="interacting-spot">
+        <div class="word-spot"></div>
+        <div class="letters-board">
+          <button class="letter" data-letter="a" data-state="active">a</button>
+          <button class="letter" data-letter="b" data-state="active">b</button>
+          <button class="letter" data-letter="c" data-state="active">c</button>
+          <button class="letter" data-letter="d" data-state="active">d</button>
+          <button class="letter" data-letter="e" data-state="active">e</button>
+          <button class="letter" data-letter="f" data-state="active">f</button>
+          <button class="letter" data-letter="g" data-state="active">g</button>
+          <button class="letter" data-letter="h" data-state="active">h</button>
+          <button class="letter" data-letter="i" data-state="active">i</button>
+          <button class="letter" data-letter="j" data-state="active">j</button>
+          <button class="letter" data-letter="k" data-state="active">k</button>
+          <button class="letter" data-letter="l" data-state="active">l</button>
+          <button class="letter" data-letter="m" data-state="active">m</button>
+          <button class="letter" data-letter="n" data-state="active">n</button>
+          <button class="letter" data-letter="o" data-state="active">o</button>
+          <button class="letter" data-letter="p" data-state="active">p</button>
+          <button class="letter" data-letter="q" data-state="active">q</button>
+          <button class="letter" data-letter="r" data-state="active">r</button>
+          <button class="letter" data-letter="s" data-state="active">s</button>
+          <button class="letter" data-letter="t" data-state="active">t</button>
+          <button class="letter" data-letter="u" data-state="active">u</button>
+          <div class="space"></div>
+          <button class="letter" data-letter="v" data-state="active">v</button>
+          <button class="letter" data-letter="w" data-state="active">w</button>
+          <button class="letter" data-letter="x" data-state="active">x</button>
+          <button class="letter" data-letter="y" data-state="active">y</button>
+          <button class="letter" data-letter="z" data-state="active">z</button>
+          <div class="space"></div>
+        </div>
+        <div class="category-spot">
+          <p class="category">
+            Word from : <span class="choosen-category">Actors</span>
+          </p>
+          <div class="change-category-btns">
+            <button class="btn" data-btn="previous">
+              <svg
+                width="35px"
+                height="35px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  opacity="0.1"
+                  d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                  fill="#0d1117"
+                />
+                <path
+                  d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                  stroke="#0d1117"
+                  stroke-width="2"
+                />
+                <path
+                  d="M8 12L16 12"
+                  stroke="#0d1117"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M11 9L8.08704 11.913V11.913C8.03897 11.961 8.03897 12.039 8.08704 12.087V12.087L11 15"
+                  stroke="#0d1117"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <button class="btn" data-btn="next">
+              <svg
+                width="35px"
+                height="35px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                  stroke="#0d1117"
+                  stroke-width="2"
+                />
+                <path
+                  d="M16 12L8 12"
+                  stroke="#0d1117"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M13 15L15.913 12.087V12.087C15.961 12.039 15.961 11.961 15.913 11.913V11.913L13 9"
+                  stroke="#0d1117"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  color: #fff;
+}
+
+body {
+  background-color: #0d1117;
+  margin: 10px;
+}
+
+svg {
+  pointer-events: none;
+}
+
+.game-title {
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.game-container {
+  display: flex;
+  margin: 50px auto 0;
+  height: 600px;
+}
+
+.gallows-spot {
+  width: 35%;
+  height: 100%;
+  position: relative;
+  margin-left: 50px;
+}
+
+.gallows-spot div {
+  position: absolute;
+  background-color: #fff;
+}
+
+.gallows-spot div[data-state="hidden"] {
+  display: none;
+}
+
+.gallows-stand {
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 200px;
+}
+
+.gallows-column {
+  bottom: 4px;
+  left: 100px;
+  height: calc(100% - 10px);
+  width: 4px;
+  transform: translateX(-50%);
+}
+
+.gallows-first-column-slanted {
+  top: 4px;
+  left: 98px;
+  width: 300px;
+  height: 4px;
+}
+
+.gallows-second-column-slanted {
+  top: -20px;
+  left: 155px;
+  width: 4px;
+  height: 150px;
+  transform: translateX(-50%);
+  transform: rotate(50deg);
+}
+
+.gallows-rope-body {
+  top: 4px;
+  left: 395px;
+  width: 4px;
+  height: 100px;
+}
+
+.gallows-rope-head {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #0d1117 !important;
+  top: 90px;
+  left: 352px;
+  border: 4px dashed #fff;
+  transform: rotate(-5deg);
+}
+
+.man-head {
+  width: 70px;
+  height: 70px;
+  top: 100px;
+  left: 362px;
+  background-color: #0d1117 !important;
+  border: 4px solid #fff;
+  border-radius: 50%;
+}
+
+.man-body {
+  width: 4px;
+  height: 130px;
+  top: 170px;
+  left: 395px;
+}
+
+.man-first-hand {
+  top: 200px;
+  right: 103px;
+  height: 60px;
+  width: 4px;
+  transform: rotate(46deg);
+}
+
+.man-second-hand {
+  top: 200px;
+  right: 60px;
+  height: 60px;
+  width: 4px;
+  transform: rotate(-46deg);
+}
+
+.man-first-leg {
+  top: 290px;
+  right: 103px;
+  height: 60px;
+  width: 4px;
+  transform: rotate(46deg);
+}
+
+.man-second-leg {
+  top: 290px;
+  right: 60px;
+  height: 60px;
+  width: 4px;
+  transform: rotate(-46deg);
+}
+
+.interacting-spot {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.word-spot {
+  display: flex;
+  margin-top: 40px;
+}
+
+.word-letter-spot {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 50px;
+  width: 40px;
+}
+
+.space-bettwen-words {
+  height: 50px;
+  width: 15px;
+  margin-right: 7px;
+}
+
+.word-letter-spot:not(:last-child) {
+  margin-right: 7px;
+}
+
+.word-letter-spot::after {
+  content: "";
+  position: absolute;
+  bottom: 7px;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background-color: royalblue;
+  z-index: -1;
+  border-radius: 10px;
+}
+
+.word-letter {
+  font-size: 2.3rem;
+  text-transform: uppercase;
+  z-index: 1;
+  text-align: center;
+}
+
+.letters-board {
+  display: grid;
+  grid-template-columns: repeat(7, 50px);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 7px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.letter {
+  font-size: 1.3rem;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  color: #0d1117;
+}
+
+.letter[data-state="disabled"] {
+  opacity: 0.2;
+  pointer-events: none;
+  user-select: none;
+}
+
+.letter:hover {
+  transform: scale(0.95);
+}
+
+.message {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1.3rem;
+}
+
+.category-spot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.choosen-category {
+  margin-left: 5px;
+  color: royalblue;
+}
+
+.change-category-btns {
+  margin-top: 15px;
+}
+
+.change-category-btns[data-state="disabled"] {
+  pointer-events: none;
+}
+
+.btn {
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn:hover {
+  transform: scale(0.95);
+}
+
+.btn[data-btn="previous"] {
+  margin-right: 5px;
+}
